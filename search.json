@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "📊 台股當日行情 (即時更新)",
+    "section": "",
+    "text": "資料來源： 臺灣證券交易所 (TWSE)\n\n\ndata = d3.json(\"[https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_AVG_ALL](https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_AVG_ALL)\")\n  .catch(err =&gt; {\n    console.log(\"API 暫時連不上，顯示模擬資料中...\");\n    return [\n      { \"Code\": \"連線中...\", \"Name\": \"請稍候\", \"ClosingPrice\": \"0\", \"MonthlyAveragePrice\": \"0\" }\n    ];\n  })\n\n// 2. 顯示更新日期\nmd`### 📊 即時行情查詢\n最後更新時間: ${new Date().toLocaleString('zh-TW')}`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nviewof search = Inputs.search(data, {\n  label: \"搜尋股票:\",\n  placeholder: \"代號或名稱...\"\n})\n\n// 4. 下載 CSV\nDOM.download(\n  new Blob([d3.csvFormat(search)], {type: \"text/csv\"}), \n  \"taiwan_stock_data.csv\", \n  \"📥 下載目前資料 (CSV)\"\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInputs.table(search, {\n  columns: [\"Code\", \"Name\", \"ClosingPrice\", \"MonthlyAveragePrice\"],\n  header: {\n    Code: \"代號\",\n    Name: \"名稱\",\n    ClosingPrice: \"收盤價\",\n    MonthlyAveragePrice: \"本月平均\"\n  }\n})"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#台股當日行情-即時更新",
+    "href": "index.html#台股當日行情-即時更新",
+    "title": "📊 台股當日行情 (即時更新)",
+    "section": "",
+    "text": "資料來源： 臺灣證券交易所 (TWSE)\n\n\ndata = d3.json(\"[https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_AVG_ALL](https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_AVG_ALL)\")\n  .catch(err =&gt; {\n    console.log(\"API 暫時連不上，顯示模擬資料中...\");\n    return [\n      { \"Code\": \"連線中...\", \"Name\": \"請稍候\", \"ClosingPrice\": \"0\", \"MonthlyAveragePrice\": \"0\" }\n    ];\n  })\n\n// 2. 顯示更新日期\nmd`### 📊 即時行情查詢\n最後更新時間: ${new Date().toLocaleString('zh-TW')}`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nviewof search = Inputs.search(data, {\n  label: \"搜尋股票:\",\n  placeholder: \"代號或名稱...\"\n})\n\n// 4. 下載 CSV\nDOM.download(\n  new Blob([d3.csvFormat(search)], {type: \"text/csv\"}), \n  \"taiwan_stock_data.csv\", \n  \"📥 下載目前資料 (CSV)\"\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInputs.table(search, {\n  columns: [\"Code\", \"Name\", \"ClosingPrice\", \"MonthlyAveragePrice\"],\n  header: {\n    Code: \"代號\",\n    Name: \"名稱\",\n    ClosingPrice: \"收盤價\",\n    MonthlyAveragePrice: \"本月平均\"\n  }\n})"
+  }
+]
